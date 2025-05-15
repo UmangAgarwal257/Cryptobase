@@ -1,14 +1,13 @@
 
-import './App.css'
+import { Navbar } from './components/Navbar'
+import { ThemeProvider } from './context/ThemeContext'
 
 function App() {
 
   return (
-    <>
-    <div className='text-3xl font-bold'>
-      Hi there
-    </div>
-    </>
+  <ThemeProvider>
+    <Navbar/>
+  </ThemeProvider>
   )
 }
 
