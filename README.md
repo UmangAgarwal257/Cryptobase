@@ -59,8 +59,8 @@ A modern cryptocurrency dashboard built with React, TypeScript, Vite, and Fireba
 
 ---
 
-**Demo:** _Add your deployed link here_
+**Demo:** 
 
 ```
-
+https://cryptobase-2w8m.vercel.app/
 ```
