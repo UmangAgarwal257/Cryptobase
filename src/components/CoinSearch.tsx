@@ -1,9 +1,9 @@
 import { useState } from "react";
-import type { Coin } from "../types/Coin";
-import { CoinItem } from "./CoinItem"
+import type { MarketCoin } from "../types/Coin";
+import { CoinItem } from "./CoinItem";
 
 interface CoinSearchProps {
-  coins: Coin[];
+  coins: MarketCoin[];
 }
 
 export const CoinSearch = ({coins} : CoinSearchProps) => {

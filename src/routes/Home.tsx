@@ -1,9 +1,9 @@
 import { CoinSearch } from "../components/CoinSearch"
 import { Trending } from "../components/Trending"
-import type { Coin } from "../types/Coin"
+import type { MarketCoin } from "../types/Coin"
 
 interface HomeProps {
-  coins : Coin[]
+  coins : MarketCoin[]
 }
 
 export const Home = ({coins} : HomeProps) => {

@@ -1,18 +1,21 @@
 import { AiOutlineStar } from "react-icons/ai"
 import { Sparklines, SparklinesLine } from "react-sparklines-typescript"
-import type { Coin } from "../types/Coin"
+import type { MarketCoin } from "../types/Coin"
+import { Link } from "react-router-dom"
 
 
-export const CoinItem = ({coin} : { coin: Coin }) => {
+export const CoinItem = ({coin} : { coin: MarketCoin }) => {
   return (
     <tr className="h-[80px] border-b overflow-hidden" key={coin.id}>
         <td><AiOutlineStar/></td>
         <td>{coin.market_cap_rank}</td>
         <td>
+            <Link to={`/coin/${coin.id}`} className="flex items-center gap-2">
             <div className="flex items-center gap-2">
                 <img className="w-6 mr-2 rounded-full" src={coin.image} alt={coin.id} />
                 <p className="hidden sm:table-cell">{coin.name}</p>
             </div>
+            </Link>
         </td>
         <td>{coin.symbol.toUpperCase()}</td>
         <td>{coin.current_price.toLocaleString()}</td>
