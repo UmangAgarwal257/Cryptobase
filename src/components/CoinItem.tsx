@@ -1,13 +1,30 @@
-import { AiOutlineStar } from "react-icons/ai"
+import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 import { Sparklines, SparklinesLine } from "react-sparklines-typescript"
 import type { MarketCoin } from "../types/Coin"
 import { Link } from "react-router-dom"
+import { UserAuth } from "../context/AuthContext"
 
 
 export const CoinItem = ({coin} : { coin: MarketCoin }) => {
+  const { user, watchList, addToWatchList, removeFromWatchList } = UserAuth();
+  const isSaved = watchList.some((c) => c.id === coin.id);
+
+  const handleStarClick = () => {
+    if (!user) return;
+    if (isSaved) {
+      removeFromWatchList(coin.id);
+    } else {
+      addToWatchList(coin);
+    }
+  };
+
   return (
     <tr className="h-[80px] border-b overflow-hidden" key={coin.id}>
-        <td><AiOutlineStar/></td>
+        <td>
+          <button onClick={handleStarClick} disabled={!user} title={user ? (isSaved ? 'Remove from Watchlist' : 'Add to Watchlist') : 'Sign in to use Watchlist'}>
+            {isSaved ? <AiFillStar className="text-accent"/> : <AiOutlineStar />}
+          </button>
+        </td>
         <td>{coin.market_cap_rank}</td>
         <td>
             <Link to={`/coin/${coin.id}`} className="flex items-center gap-2">
